@@ -3,517 +3,549 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unified Portal | Innovate Company Ltd</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <title>Innovate Company Ltd | Home</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink:    #0f1117;
-      --cream:  #f5f0e8;
-      --gold:   #c8973a;
-      --rust:   #b84c2e;
-      --mist:   #dcd6cb;
-      --white:  #ffffff;
-      --radius: 4px;
+    *, *::before, *::after{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    :root{
+      --ink:#0f1117;
+      --cream:#f5f0e8;
+      --gold:#c8973a;
+      --rust:#b84c2e;
+      --mist:#dcd6cb;
+      --white:#ffffff;
+      --radius:4px;
     }
 
-    header {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 20px 48px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      border-bottom: 3px solid var(--gold);
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .logo-mark {
-      width: 44px; height: 44px;
-      background: var(--gold);
-      border-radius: 50%;
-      display: grid; place-items: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; color: var(--ink); font-weight: 900;
-      flex-shrink: 0;
-    }
-    .brand-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; letter-spacing: .04em;
-    }
-    .brand-text span { font-size: .78rem; opacity: .55; display: block; margin-top: 2px; }
-    .header-badge {
-      background: rgba(200,151,58,0.15);
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: .75rem;
-      font-weight: 500;
-      color: var(--gold);
-      border: 1px solid rgba(200,151,58,0.3);
+    body{
+      font-family:'DM Sans', sans-serif;
+      background:var(--cream);
+      color:var(--ink);
+      min-height:100vh;
     }
 
-    .portal-container {
-      max-width: 1300px;
-      margin: 40px auto;
-      width: 90%;
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: all 0.2s;
+    /* HEADER */
+    header{
+      background:var(--ink);
+      color:var(--cream);
+      padding:22px 48px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:3px solid var(--gold);
+      flex-wrap:wrap;
+      gap:20px;
     }
 
-    .tabs-nav {
-      display: flex;
-      flex-wrap: wrap;
-      background: #faf7f2;
-      border-bottom: 1px solid var(--mist);
-      padding: 0 24px;
-      gap: 8px;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
     }
-    .tab-btn {
-      background: transparent;
-      border: none;
-      padding: 16px 28px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: .9rem;
-      letter-spacing: .02em;
-      color: #5a5a5a;
-      cursor: pointer;
-      transition: all 0.2s;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -1px;
-    }
-    .tab-btn:hover { color: var(--ink); background: #f0ebe3; }
-    .tab-btn.active {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
-      background: white;
-    }
-    .tab-content {
-      display: none;
-      padding: 0;
-      background: var(--white);
-    }
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.25s ease;
-    }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    .form-scroll {
-      max-height: 70vh;
-      overflow-y: auto;
-      padding: 32px 40px;
+    .logo-mark{
+      width:46px;
+      height:46px;
+      background:var(--gold);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-family:'Playfair Display', serif;
+      font-size:24px;
+      font-weight:900;
+      color:var(--ink);
     }
-    .form-scroll::-webkit-scrollbar { width: 6px; }
-    .form-scroll::-webkit-scrollbar-track { background: var(--mist); border-radius: 10px; }
-    .form-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-    .field-group { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; margin-bottom: 16px; }
-    .field-group.full { grid-template-columns: 1fr; }
-    .field { display: flex; flex-direction: column; gap: 6px; }
-    label { font-size: .75rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #666; }
-    label span.req { color: var(--rust); margin-left: 2px; }
-    input, select, textarea {
-      font-family: 'DM Sans', sans-serif;
-      font-size: .9rem;
-      padding: 11px 14px;
-      border: 1.5px solid var(--mist);
-      border-radius: var(--radius);
-      background: var(--cream);
-      color: var(--ink);
-      outline: none;
-      transition: border-color .2s, box-shadow .2s;
-      width: 100%;
+    .brand h1{
+      font-family:'Playfair Display', serif;
+      font-size:1.35rem;
+      letter-spacing:.04em;
     }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(200,151,58,.15);
-      background: var(--white);
+
+    .brand span{
+      font-size:.78rem;
+      opacity:.6;
+      display:block;
+      margin-top:3px;
     }
-    .radio-group, .check-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 20px;
-      margin-top: 4px;
+
+    nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
     }
-    .radio-group label, .check-group label {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: .88rem;
-      font-weight: 400;
-      color: var(--ink);
-      cursor: pointer;
+
+    nav a{
+      text-decoration:none;
+      color:var(--cream);
+      font-size:.85rem;
+      padding:10px 18px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:40px;
+      transition:.2s;
     }
-    input[type="radio"], input[type="checkbox"] {
-      width: 16px; height: 16px;
-      accent-color: var(--gold);
-      flex-shrink: 0;
+
+    nav a:hover{
+      background:var(--gold);
+      color:var(--ink);
+      border-color:var(--gold);
     }
-    .upload-box {
-      border: 2px dashed var(--mist);
-      border-radius: var(--radius);
-      padding: 22px;
-      text-align: center;
-      cursor: pointer;
-      transition: border-color .2s;
-      background: var(--cream);
-      position: relative;
+
+    /* HERO */
+    .hero{
+      max-width:1300px;
+      margin:50px auto;
+      background:var(--white);
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 10px 50px rgba(0,0,0,.1);
+
+      display:grid;
+      grid-template-columns:380px 1fr;
     }
-    .upload-box:hover { border-color: var(--gold); }
-    .upload-box input[type="file"] {
-      position: absolute; inset: 0; opacity: 0; cursor: pointer;
+
+    /* LEFT PANEL */
+    .hero-left{
+      background:var(--ink);
+      color:var(--cream);
+      padding:60px 42px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:34px;
     }
-    .form-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 24px;
-      border-top: 1px solid var(--mist);
-      gap: 16px;
-      margin-top: 20px;
+
+    .hero-left::before{
+      content:'';
+      position:absolute;
+      inset:0;
+
+      background:repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 28px,
+        rgba(200,151,58,.06) 28px,
+        rgba(200,151,58,.06) 29px
+      );
     }
-    button[type="submit"], .primary-btn {
-      font-family: 'DM Sans', sans-serif;
-      font-size: .9rem;
-      font-weight: 500;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      background: var(--ink);
-      color: var(--cream);
-      border: none;
-      padding: 13px 28px;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: background .2s;
+
+    .hero-left h2{
+      position:relative;
+      font-family:'Playfair Display', serif;
+      font-size:2.5rem;
+      line-height:1.2;
     }
-    button[type="submit"]:hover, .primary-btn:hover { background: var(--gold); color: var(--ink); }
-    button[type="reset"], .secondary-btn {
-      background: none;
-      border: 1.5px solid var(--mist);
-      color: #888;
-      padding: 11px 22px;
-      border-radius: var(--radius);
-      cursor: pointer;
+
+    .hero-left h2 em{
+      color:var(--gold);
+      font-style:normal;
     }
-    .success-msg {
-      display: none;
-      background: #e8f5e9;
-      border-left: 4px solid #388e3c;
-      color: #1b5e20;
-      padding: 14px 18px;
-      border-radius: var(--radius);
-      font-size: .9rem;
-      margin-bottom: 20px;
+
+    .hero-left p{
+      position:relative;
+      opacity:.7;
+      line-height:1.9;
+      font-size:.92rem;
     }
-    .progress-bar {
-      background: var(--mist);
-      height: 5px;
-      border-radius: 99px;
-      overflow: hidden;
-      margin-bottom: 28px;
+
+    .hero-stats{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
     }
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold), var(--rust));
-      border-radius: 99px;
-      width: 0%;
-      transition: width .4s ease;
+
+    .stat-box{
+      border:1px solid rgba(255,255,255,.08);
+      padding:18px;
+      border-radius:6px;
+      background:rgba(255,255,255,.02);
     }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-      margin-top: 12px;
+
+    .stat-box h3{
+      color:var(--gold);
+      font-size:1.4rem;
+      margin-bottom:4px;
     }
-    .simple-form {
-      max-width: 500px;
-      margin: 0 auto;
-      width: 100%;
+
+    .stat-box span{
+      font-size:.8rem;
+      opacity:.7;
     }
-    @media (max-width: 780px) {
-      .form-scroll { padding: 24px 20px; }
-      .tabs-nav { padding: 0 12px; }
-      .tab-btn { padding: 12px 16px; font-size: .8rem; }
+
+    /* RIGHT PANEL */
+    .hero-right{
+      padding:60px;
     }
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: .75rem;
-      color: #aaa;
+
+    .top-badge{
+      display:inline-block;
+      background:rgba(200,151,58,.12);
+      color:var(--gold);
+      border:1px solid rgba(200,151,58,.25);
+      padding:7px 16px;
+      border-radius:40px;
+      font-size:.75rem;
+      margin-bottom:20px;
+      font-weight:600;
+    }
+
+    .hero-right h3{
+      font-family:'Playfair Display', serif;
+      font-size:2.3rem;
+      line-height:1.3;
+      margin-bottom:18px;
+    }
+
+    .hero-right h3 span{
+      color:var(--gold);
+    }
+
+    .hero-right p{
+      color:#666;
+      line-height:1.9;
+      font-size:.95rem;
+      max-width:700px;
+      margin-bottom:34px;
+    }
+
+    /* CARDS */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+
+    .card{
+      border:1px solid var(--mist);
+      background:#faf7f2;
+      border-radius:8px;
+      padding:28px;
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:var(--gold);
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .card .icon{
+      font-size:2rem;
+      margin-bottom:16px;
+    }
+
+    .card h4{
+      font-family:'Playfair Display', serif;
+      margin-bottom:10px;
+      font-size:1.15rem;
+    }
+
+    .card p{
+      margin-bottom:20px;
+      font-size:.88rem;
+      line-height:1.7;
+      color:#666;
+    }
+
+    .card a{
+      text-decoration:none;
+      font-size:.84rem;
+      color:var(--rust);
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .card a:hover{
+      color:var(--gold);
+    }
+
+    /* CTA */
+    .cta{
+      margin-top:40px;
+      padding-top:30px;
+      border-top:1px solid var(--mist);
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .cta p{
+      margin:0;
+      font-size:.88rem;
+      color:#777;
+    }
+
+    .btn-group{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+      text-decoration:none;
+      padding:13px 24px;
+      border-radius:var(--radius);
+      font-size:.88rem;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .primary-btn{
+      background:var(--ink);
+      color:var(--cream);
+    }
+
+    .primary-btn:hover{
+      background:var(--gold);
+      color:var(--ink);
+    }
+
+    .secondary-btn{
+      border:1.5px solid var(--mist);
+      color:#777;
+      background:transparent;
+    }
+
+    .secondary-btn:hover{
+      border-color:var(--rust);
+      color:var(--rust);
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:28px;
+      font-size:.75rem;
+      color:#999;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+
+      .hero{
+        grid-template-columns:1fr;
+        margin:0;
+        border-radius:0;
+      }
+
+      .hero-left{
+        padding:40px 28px;
+      }
+
+      .hero-right{
+        padding:40px 28px;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      header{
+        padding:22px 24px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
+
   <div class="brand">
+
     <div class="logo-mark">I</div>
-    <div class="brand-text">
+
+    <div>
       <h1>Innovate Company Ltd</h1>
-      <span>Nyagatare District · Student Services Hub</span>
+      <span>Nyagatare District · Digital Student Platform</span>
     </div>
+
   </div>
-  <div class="header-badge">📋 Integrated Forms Portal</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Student Portal</a>
+    <a href="#">Library</a>
+    <a href="#">Admissions</a>
+    <a href="#">Contact</a>
+  </nav>
+
 </header>
 
-<div class="portal-container">
-  <div class="tabs-nav">
-    <button class="tab-btn active" data-tab="tab-student-reg">🎓 Student Registration</button>
-    <button class="tab-btn" data-tab="tab-login">🔐 Student Login</button>
-    <button class="tab-btn" data-tab="tab-book-reg">📚 Book Registration</button>
-    <button class="tab-btn" data-tab="tab-entertainment">🎉 Entertainment Form</button>
-  </div>
+<section class="hero">
 
-  <!-- TAB 1: Student Registration (so.html enhanced) -->
-  <div id="tab-student-reg" class="tab-content active">
-    <div class="form-scroll">
-      <div class="progress-bar"><div class="progress-bar-fill" id="reg-progress"></div></div>
-      <div id="reg-success-msg" class="success-msg">✅ Registration submitted successfully! You will receive a confirmation email shortly.</div>
-      <form id="student-reg-form" novalidate>
-        <div class="section-title">1 · Personal Details</div>
-        <div class="field-group">
-          <div class="field"><label>First Name <span class="req">*</span></label><input type="text" name="first_name" placeholder="e.g. Annet" required></div>
-          <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" name="last_name" placeholder="e.g. Uwase" required></div>
-          <div class="field"><label>Date of Birth <span class="req">*</span></label><input type="date" name="dob" required></div>
-          <div class="field"><label>National ID <span class="req">*</span></label><input type="text" name="national_id" placeholder="ID or passport" required></div>
-          <div class="field full"><label>Gender <span class="req">*</span></label>
-            <div class="radio-group">
-              <label><input type="radio" name="gender" value="male" required> Male</label>
-              <label><input type="radio" name="gender" value="female"> Female</label>
-              <label><input type="radio" name="gender" value="other"> Other</label>
-            </div>
-          </div>
-        </div>
+  <!-- LEFT SIDE -->
+  <div class="hero-left">
 
-        <div class="section-title">2 · Contact Information</div>
-        <div class="field-group">
-          <div class="field"><label>Phone <span class="req">*</span></label><input type="tel" name="phone" placeholder="+250 7XX XXX XXX" required></div>
-          <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" placeholder="you@example.com" required></div>
-          <div class="field full"><label>Address <span class="req">*</span></label><textarea name="address" placeholder="District, Sector, Cell, Village" required></textarea></div>
-          <div class="field"><label>Province <span class="req">*</span></label><select name="province" required><option value="">Select Province</option><option>Kigali City</option><option>Eastern Province</option><option>Western Province</option><option>Northern Province</option><option>Southern Province</option></select></div>
-          <div class="field"><label>District <span class="req">*</span></label><input type="text" name="district" placeholder="e.g. Nyagatare" required></div>
-          <div class="field"><label>Emergency Contact</label><input type="text" name="emergency_name" placeholder="Full name"></div>
-          <div class="field"><label>Emergency Phone</label><input type="tel" name="emergency_phone" placeholder="+250 7XX XXX XXX"></div>
-        </div>
+    <h2>
+      Welcome to<br/>
+      <em>Innovate</em><br/>
+      Digital Hub
+    </h2>
 
-        <div class="section-title">3 · Academic Background</div>
-        <div class="field-group">
-          <div class="field"><label>Previous School <span class="req">*</span></label><input type="text" name="prev_school" placeholder="Last school attended" required></div>
-          <div class="field"><label>Year Completed <span class="req">*</span></label><input type="number" name="completion_year" placeholder="2023" min="1990" max="2026" required></div>
-          <div class="field"><label>Qualification <span class="req">*</span></label><select name="qualification" required><option value="">Select</option><option>O-Level</option><option>A-Level</option><option>Diploma</option><option>Bachelor's Degree</option></select></div>
-          <div class="field"><label>Aggregate/GPA</label><input type="text" name="grade" placeholder="e.g. B+ or 3.5"></div>
-        </div>
+    <p>
+      A modern academic platform designed to simplify student
+      services, digital learning, admissions, and library
+      management within one connected environment.
+    </p>
 
-        <div class="section-title">4 · Programme & Preferences</div>
-        <div class="field-group">
-          <div class="field"><label>Desired Programme <span class="req">*</span></label><select name="programme" required><option value="">Select Programme</option><option>Computer Science</option><option>Information Technology</option><option>Software Engineering</option><option>Business Administration</option></select></div>
-          <div class="field"><label>Study Mode <span class="req">*</span></label><select name="study_mode" required><option>Full-time</option><option>Part-time</option><option>Online</option></select></div>
-          <div class="field"><label>Intake Year <span class="req">*</span></label><select name="intake" required><option>2025</option><option>2026</option></select></div>
-          <div class="field full"><label>How did you hear?</label><div class="check-group"><label><input type="checkbox" value="social_media"> Social Media</label><label><input type="checkbox" value="friend"> Friend</label><label><input type="checkbox" value="school"> School</label></div></div>
-        </div>
+    <div class="hero-stats">
 
-        <div class="section-title">5 · Passport Photo</div>
-        <div class="upload-box"><input type="file" name="photo" accept="image/*"><span class="icon">📷</span><p><strong>Click to upload</strong> (JPG/PNG up to 2MB)</p></div>
-
-        <div class="check-group"><label><input type="checkbox" name="declaration" required> I confirm all information is accurate. <span class="req">*</span></label></div>
-
-        <div class="form-actions"><p>Fields marked <span style="color:var(--rust)">*</span> required</p><div><button type="reset">Clear Form</button><button type="submit">Submit Registration →</button></div></div>
-      </form>
-    </div>
-  </div>
-
-  <!-- TAB 2: Student Login (s.html style) -->
-  <div id="tab-login" class="tab-content">
-    <div class="form-scroll" style="display: flex; justify-content: center; align-items: center;">
-      <div class="simple-form">
-        <div id="login-success-msg" class="success-msg">✅ Login successful! Redirecting to your dashboard...</div>
-        <h3 style="font-family: 'Playfair Display'; margin-bottom: 8px;">Welcome Back</h3>
-        <p style="margin-bottom: 24px; color:#666;">Sign in using your student credentials.</p>
-        <form id="login-form">
-          <div class="field"><label>Student Email <span class="req">*</span></label><input type="email" placeholder="student@example.com" required></div>
-          <div class="field"><label>Password <span class="req">*</span></label><input type="password" placeholder="Enter your password" required></div>
-          <div class="options" style="display:flex; justify-content:space-between; margin: 16px 0 24px;"><label class="remember"><input type="checkbox"> Remember me</label><a href="#" style="color:var(--rust);">Forgot Password?</a></div>
-          <button type="submit" style="width:100%;">Login →</button>
-          <div class="bottom-text" style="text-align:center; margin-top:20px;">Don't have an account? <a href="#" style="color:var(--rust);">Register here</a></div>
-        </form>
+      <div class="stat-box">
+        <h3>5K+</h3>
+        <span>Registered Students</span>
       </div>
+
+      <div class="stat-box">
+        <h3>250+</h3>
+        <span>Digital Resources</span>
+      </div>
+
+      <div class="stat-box">
+        <h3>15+</h3>
+        <span>Academic Programmes</span>
+      </div>
+
+      <div class="stat-box">
+        <h3>24/7</h3>
+        <span>Online Access</span>
+      </div>
+
     </div>
+
   </div>
 
-  <!-- TAB 3: Book Registration (sarah.html) -->
-  <div id="tab-book-reg" class="tab-content">
-    <div class="form-scroll" style="max-width: 600px; margin: 0 auto; width:100%;">
-      <div id="book-success-msg" class="success-msg">📘 Book registered successfully! Library record updated.</div>
-      <h3 style="font-family: 'Playfair Display'; margin-bottom: 6px;">Book Registration</h3>
-      <p style="margin-bottom: 24px; font-size:0.85rem; color:#666;">Add new book to library inventory</p>
-      <form id="book-form">
-        <div class="field"><label>Book Title <span class="req">*</span></label><input type="text" name="title" required></div>
-        <div class="field"><label>Author Name <span class="req">*</span></label><input type="text" name="author" required></div>
-        <div class="field"><label>ISBN Number <span class="req">*</span></label><input type="text" name="isbn" required></div>
-        <div class="field"><label>Category</label><select name="category"><option>Science</option><option>Technology</option><option>Education</option><option>Novel</option></select></div>
-        <div class="field"><label>Publication Date</label><input type="date" name="date"></div>
-        <div class="field"><label>Description</label><textarea name="description" rows="3"></textarea></div>
-        <div class="form-actions" style="justify-content: flex-end;"><button type="reset">Clear</button><button type="submit">Register Book</button></div>
-      </form>
+  <!-- RIGHT SIDE -->
+  <div class="hero-right">
+
+    <div class="top-badge">
+      🎓 Integrated Education Platform
     </div>
+
+    <h3>
+      Everything students need in
+      <span>one place</span>
+    </h3>
+
+    <p>
+      Access registration services, login portals, digital library
+      systems, academic records, announcements, and more through
+      a secure and professionally designed platform.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="icon">📝</div>
+
+        <h4>Student Registration</h4>
+
+        <p>
+          Apply for admission and submit your academic information
+          through the online registration system.
+        </p>
+
+        <a href="#">
+          Open Registration →
+        </a>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">🔐</div>
+
+        <h4>Student Login</h4>
+
+        <p>
+          Securely access your student dashboard, timetable,
+          grades, and academic profile.
+        </p>
+
+        <a href="#">
+          Login to Portal →
+        </a>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">📚</div>
+
+        <h4>Digital Library</h4>
+
+        <p>
+          Browse educational materials, books, journals,
+          and academic resources anytime.
+        </p>
+
+        <a href="#">
+          Visit Library →
+        </a>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">🎉</div>
+
+        <h4>Student Activities</h4>
+
+        <p>
+          Discover events, entertainment programmes,
+          student clubs, and campus activities.
+        </p>
+
+        <a href="#">
+          Explore Activities →
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="cta">
+
+      <p>
+        Start your academic journey with Innovate Company Ltd today.
+      </p>
+
+      <div class="btn-group">
+
+        <a href="#" class="primary-btn">
+          Get Started →
+        </a>
+
+        <a href="#" class="secondary-btn">
+          Learn More
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <!-- TAB 4: Entertainment Form (sa.html) -->
-  <div id="tab-entertainment" class="tab-content">
-    <div class="form-scroll" style="max-width: 600px; margin: 0 auto;">
-      <div id="ent-success-msg" class="success-msg">🎉 Entertainment preferences saved! Thank you.</div>
-      <h3 style="font-family:'Playfair Display';">Entertainment Form</h3>
-      <p style="margin-bottom: 20px;">Share your interests and hobbies</p>
-      <form id="entertainment-form">
-        <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" name="fullname" placeholder="Enter your name" required></div>
-        <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="ent_email" placeholder="Enter your email" required></div>
-        <div class="field"><label>Favorite Entertainment</label><select name="fav_ent"><option>Music</option><option>Movies</option><option>Football</option><option>Games</option><option>Dancing</option></select></div>
-        <div class="field"><label>Gender</label><div class="radio-group"><label><input type="radio" name="gender_ent" value="Male"> Male</label><label><input type="radio" name="gender_ent" value="Female"> Female</label></div></div>
-        <div class="field"><label>Hobbies</label><div class="check-group"><label><input type="checkbox" value="Singing"> Singing</label><label><input type="checkbox" value="Watching Movies"> Watching Movies</label><label><input type="checkbox" value="Playing Games"> Playing Games</label></div></div>
-        <div class="field"><label>Comment</label><textarea rows="3" name="comment" placeholder="Your feedback..."></textarea></div>
-        <div class="form-actions" style="justify-content: flex-end;"><button type="reset">Clear</button><button type="submit">Submit →</button></div>
-      </form>
-    </div>
-  </div>
-</div>
-<footer>© 2026 Innovate Company Ltd · Nyagatare District, Rwanda · All Rights Reserved | Integrated Portal</footer>
+</section>
 
-<script>
-  (function() {
-    const tabsBtns = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
-    function switchTab(tabId) {
-      contents.forEach(c => c.classList.remove('active'));
-      const activePanel = document.getElementById(tabId);
-      if(activePanel) activePanel.classList.add('active');
-      tabsBtns.forEach(btn => {
-        btn.classList.remove('active');
-        if(btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
-      });
-    }
-    tabsBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const tabId = btn.getAttribute('data-tab');
-        switchTab(tabId);
-      });
-    });
+<footer>
+  © 2026 Innovate Company Ltd · Nyagatare District, Rwanda · All Rights Reserved
+</footer>
 
-    const regForm = document.getElementById('student-reg-form');
-    const regProgressFill = document.getElementById('reg-progress');
-    const regSuccessMsg = document.getElementById('reg-success-msg');
-
-    function updateRegProgress() {
-      if (!regForm) return;
-      const required = regForm.querySelectorAll('[required]');
-      let filled = 0;
-      let totalUnique = 0;
-      const radioGroups = new Set();
-      required.forEach(f => {
-        if (f.type === 'radio') {
-          radioGroups.add(f.name);
-        } else if (f.type === 'checkbox' && f.name === 'declaration') {
-          if (f.checked) filled++;
-        } else if (f.type !== 'radio' && f.type !== 'checkbox') {
-          if (f.value.trim() !== '') filled++;
-        }
-      });
-      radioGroups.forEach(name => {
-        const checked = regForm.querySelector(`input[name="${name}"]:checked`);
-        if (checked) filled++;
-      });
-      totalUnique = required.length - [...required].filter(f => f.type === 'radio').length + radioGroups.size;
-      const pct = totalUnique ? Math.min(100, Math.round((filled / totalUnique) * 100)) : 0;
-      if (regProgressFill) regProgressFill.style.width = pct + '%';
-    }
-    if (regForm) {
-      regForm.addEventListener('input', updateRegProgress);
-      regForm.addEventListener('change', updateRegProgress);
-      regForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (!regForm.checkValidity()) { regForm.reportValidity(); return; }
-        regSuccessMsg.style.display = 'block';
-        if (regProgressFill) regProgressFill.style.width = '100%';
-        regSuccessMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => { regSuccessMsg.style.display = 'none'; }, 4000);
-      });
-      regForm.addEventListener('reset', function() { regSuccessMsg.style.display = 'none'; setTimeout(updateRegProgress, 50); });
-      updateRegProgress();
-    }
-
-    const loginForm = document.getElementById('login-form');
-    const loginSuccess = document.getElementById('login-success-msg');
-    if (loginForm) {
-      loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (!loginForm.checkValidity()) { loginForm.reportValidity(); return; }
-        loginSuccess.style.display = 'block';
-        setTimeout(() => { loginSuccess.style.display = 'none'; }, 4000);
-        loginForm.reset();
-      });
-    }
-
-    const bookForm = document.getElementById('book-form');
-    const bookSuccess = document.getElementById('book-success-msg');
-    if (bookForm) {
-      bookForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (!bookForm.checkValidity()) { bookForm.reportValidity(); return; }
-        bookSuccess.style.display = 'block';
-        setTimeout(() => { bookSuccess.style.display = 'none'; }, 3000);
-        bookForm.reset();
-      });
-      bookForm.addEventListener('reset', () => { bookSuccess.style.display = 'none'; });
-    }
-
-    const entForm = document.getElementById('entertainment-form');
-    const entSuccess = document.getElementById('ent-success-msg');
-    if (entForm) {
-      entForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (!entForm.checkValidity()) { entForm.reportValidity(); return; }
-        entSuccess.style.display = 'block';
-        setTimeout(() => { entSuccess.style.display = 'none'; }, 3000);
-        entForm.reset();
-      });
-      entForm.addEventListener('reset', () => { entSuccess.style.display = 'none'; });
-    }
-
-    document.querySelectorAll('button[type="reset"]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const form = btn.closest('form');
-        if (form) {
-          setTimeout(() => {
-            const fileInput = form.querySelector('input[type="file"]');
-            if (fileInput) fileInput.value = '';
-            if (form.id === 'student-reg-form') updateRegProgress();
-          }, 10);
-        }
-      });
-    });
-  })();
-</script>
 </body>
 </html>
